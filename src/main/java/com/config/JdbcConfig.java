@@ -14,7 +14,7 @@ public class JdbcConfig {
         } catch (PropertyVetoException e) {
             e.printStackTrace();
         }
-        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/javatest?setTimezone=CCT");
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/javatest?serverTimezone=UTC");
         dataSource.setUser("root");
         dataSource.setPassword("root");
         return dataSource;
