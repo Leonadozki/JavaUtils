@@ -3,11 +3,15 @@ package com.utils;
 import java.util.Map;
 import java.util.TreeMap;
 
+
 /**
- *  统计字符串出现次数
- * */
+ *  字符串统计类
+ */
 public class WordCountUtil {
 
+    /**
+     *  统计字符串出现次数
+     * */
     public static void wordCount(String target) {
 
         Map<Character,Integer> map = new TreeMap<Character,Integer>();

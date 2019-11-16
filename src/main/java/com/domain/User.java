@@ -1,12 +1,24 @@
 package com.domain;
 
+import com.github.crab2died.annotation.ExcelField;
+
 import java.util.Date;
 
 public class User {
+
+    @ExcelField(title = "id")
     private Integer id;
+
+    @ExcelField(title = "username")
     private String username;
+
+    @ExcelField(title = "birthday")
     private Date birthday;
+
+    @ExcelField(title = "sex")
     private String sex;
+
+    @ExcelField(title = "address")
     private String address;
 
     public Integer getId() {

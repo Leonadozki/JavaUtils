@@ -37,6 +37,13 @@
             <version>2.6</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.github.crab2died/Excel4J -->
+        <dependency>
+            <groupId>com.github.crab2died</groupId>
+            <artifactId>Excel4J</artifactId>
+            <version>3.0.0-Alpha</version>
+        </dependency>
+
 
 
     </dependencies>
