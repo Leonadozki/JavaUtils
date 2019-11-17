@@ -1,6 +1,7 @@
 package com.domain;
 
 import com.github.crab2died.annotation.ExcelField;
+import com.utils.converters.WriteConverter;
 
 import java.util.Date;
 
@@ -12,7 +13,7 @@ public class User {
     @ExcelField(title = "username")
     private String username;
 
-    @ExcelField(title = "birthday")
+    @ExcelField(title = "birthday", writeConverter = WriteConverter.class)
     private Date birthday;
 
     @ExcelField(title = "sex")
