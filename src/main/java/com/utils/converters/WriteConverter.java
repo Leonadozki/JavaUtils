@@ -11,6 +11,9 @@ import java.util.Date;
  */
 public class WriteConverter implements WriteConvertible {
 
+    /**
+     *  日期写转换
+     */
     public Object execWrite(Object object) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         if (object instanceof Date){
