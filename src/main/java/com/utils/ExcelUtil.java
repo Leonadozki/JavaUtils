@@ -53,7 +53,4 @@ public class ExcelUtil {
         return apis;
     }
 
-    public static void main(String[] args) throws Exception {
-        List<Api> apis = readExcel2Api();
-    }
 }

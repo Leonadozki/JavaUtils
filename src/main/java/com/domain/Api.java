@@ -22,6 +22,9 @@ public class Api {
     @ExcelField(title = "是否开启", readConverter = ReadConverter.class)
     private Integer status;
 
+    @ExcelField(title = "参数")
+    private String params;
+
     public Integer getId() {
         return id;
     }
@@ -62,6 +65,14 @@ public class Api {
         this.status = status;
     }
 
+    public String getParams() {
+        return params;
+    }
+
+    public void setParams(String params) {
+        this.params = params;
+    }
+
     @Override
     public String toString() {
         return "Api{" +
@@ -70,6 +81,7 @@ public class Api {
                 ", url='" + url + '\'' +
                 ", method='" + method + '\'' +
                 ", status=" + status +
+                ", params='" + params + '\'' +
                 '}';
     }
 }

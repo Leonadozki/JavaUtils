@@ -14,7 +14,7 @@ public class WordCountUtil {
      * */
     public static void wordCount(String target) {
 
-        Map<Character,Integer> map = new TreeMap<Character,Integer>();
+        Map<Character,Integer> map = new TreeMap<>();
 
         // 第一种方法，用charAt()方法循环定位字符串
         //	另一种方法，用String对象的toCharArray()转化成char数组
