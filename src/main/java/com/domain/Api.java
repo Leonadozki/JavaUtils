@@ -1,6 +1,7 @@
 package com.domain;
 
 import com.github.crab2died.annotation.ExcelField;
+import com.utils.converters.FileConverter;
 import com.utils.converters.ReadConverter;
 
 /**
@@ -22,7 +23,7 @@ public class Api {
     @ExcelField(title = "是否开启", readConverter = ReadConverter.class)
     private Integer status;
 
-    @ExcelField(title = "参数")
+    @ExcelField(title = "参数", readConverter = FileConverter.class)
     private String params;
 
     public Integer getId() {
