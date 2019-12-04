@@ -37,10 +37,19 @@ public class MapUtil {
 
     /**
      * @param params
-     * regex 默认为“&”
+     * regex 默认分隔符为“;”
      * @return
      */
     public static Map<String, String> convertString2Map1(String params){
         return convertString2Map(params, regex0);
+    }
+
+    /**
+     * @param params
+     * regex 默认为“&”
+     * @return
+     */
+    public static Map<String, String> convertString2Map2(String params){
+        return convertString2Map(params, regex1);
     }
 }

@@ -26,6 +26,9 @@ public class Api {
     @ExcelField(title = "参数", readConverter = FileConverter.class)
     private String params;
 
+    @ExcelField(title = "头部")
+    private String headers;
+
     public Integer getId() {
         return id;
     }
@@ -74,6 +77,14 @@ public class Api {
         this.params = params;
     }
 
+    public String getHeaders() {
+        return headers;
+    }
+
+    public void setHeaders(String headers) {
+        this.headers = headers;
+    }
+
     @Override
     public String toString() {
         return "Api{" +
@@ -83,6 +94,7 @@ public class Api {
                 ", method='" + method + '\'' +
                 ", status=" + status +
                 ", params='" + params + '\'' +
+                ", headers='" + headers + '\'' +
                 '}';
     }
 }

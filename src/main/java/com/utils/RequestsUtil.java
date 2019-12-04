@@ -9,6 +9,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
@@ -25,14 +26,14 @@ import java.util.Set;
  */
 public class RequestsUtil {
 
-    // 创建代理
+    // 创建代理， 使用final的变量Java和JVM会进行缓存，优化性能
     final static HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
 
     // 配置代理
     static RequestConfig config = RequestConfig.custom().setProxy(proxy).build();
 
-    // 创建连接池， 使用final的变量Java和JVM会进行缓存，优化性能
-    final static CloseableHttpClient httpClient = HttpClients.createDefault();
+    // 创建连接池
+    static CloseableHttpClient httpClient = HttpClients.createDefault();
 
 
     /**
@@ -72,16 +73,48 @@ public class RequestsUtil {
         System.out.println(EntityUtils.toString(responseEntity));
     }
 
+    /**
+     *  入参为json串的post请求， 及header处理
+     */
+    public static void doPostJson(String url, String params, Map<String, String> headers) throws Exception {
+        HttpPost httpPost = new HttpPost(url);
+        // 添加headers处理
+        if (headers!=null){
+            Set<String> strings = headers.keySet();
+            for (String header: strings){
+                httpPost.addHeader(header, headers.get(header));
+            }
+        }
+        if (params!=null){
+            // json入参直接用StringEntity处理
+            StringEntity stringEntity =  new StringEntity(params, "utf-8");
+            stringEntity.setContentEncoding("UTF-8");
+            stringEntity.setContentType("application/json");
+            httpPost.setEntity(stringEntity);
+        }
+        // 配置连接
+        httpClient = HttpClients.custom().setDefaultRequestConfig(config).build();
+        CloseableHttpResponse response = httpClient.execute(httpPost);
+        HttpEntity entity = response.getEntity();
+        System.out.println(EntityUtils.toString(entity));
+    }
+
     public static void main(String[] args) throws Exception {
         // 获取excel中所有接口信息
         List<Api> apis = ExcelUtil.readExcel2Api();
         for (Api api: apis){
-            if ("get".equals(api.getMethod()) && api.getStatus() == 1){
-                RequestsUtil.doGet(api.getUrl());
-            }else if ("post".equals(api.getMethod()) && api.getStatus() == 1){
-                // 入参转换为Map传入
-                RequestsUtil.doPost(api.getUrl(), MapUtil.convertString2Map1(api.getParams()));
+            // 先判断是否启用
+            if (api.getStatus() == 1){
+                if ("get".equals(api.getMethod()) ){
+                    RequestsUtil.doGet(api.getUrl());
+                }else if ("post".equals(api.getMethod()) ){
+                    // 入参转换为Map传入
+                    RequestsUtil.doPost(api.getUrl(), MapUtil.convertString2Map1(api.getParams()));
+                }else if("postjson".equals(api.getMethod()) ){
+                    RequestsUtil.doPostJson(api.getUrl(), api.getParams(), MapUtil.convertString2Map2(api.getHeaders()));
+                }
             }
+
         }
     }
 }
