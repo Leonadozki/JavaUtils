@@ -35,6 +35,7 @@ public class ApiTest {
             // 替换内容
             url = url.replace(matcher.group(), paramMap.get(matcher.group(1)));
         }
+        System.out.println(url);
         api.setUrl(url);
         return api;
     }
