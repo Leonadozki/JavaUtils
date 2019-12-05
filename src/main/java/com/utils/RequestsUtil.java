@@ -98,23 +98,4 @@ public class RequestsUtil {
         HttpEntity entity = response.getEntity();
         System.out.println(EntityUtils.toString(entity));
     }
-
-    public static void main(String[] args) throws Exception {
-        // 获取excel中所有接口信息
-        List<Api> apis = ExcelUtil.readExcel2Api();
-        for (Api api: apis){
-            // 先判断是否启用
-            if (api.getStatus() == 1){
-                if ("get".equals(api.getMethod()) ){
-                    RequestsUtil.doGet(api.getUrl());
-                }else if ("post".equals(api.getMethod()) ){
-                    // 入参转换为Map传入
-                    RequestsUtil.doPost(api.getUrl(), MapUtil.convertString2Map1(api.getParams()));
-                }else if("postjson".equals(api.getMethod()) ){
-                    RequestsUtil.doPostJson(api.getUrl(), api.getParams(), MapUtil.convertString2Map2(api.getHeaders()));
-                }
-            }
-
-        }
-    }
 }

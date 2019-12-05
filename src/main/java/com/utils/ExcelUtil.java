@@ -2,10 +2,14 @@ package com.utils;
 
 import com.dao.IUserDaoImpl;
 import com.domain.Api;
+import com.domain.ParamBean;
 import com.domain.User;
 import com.github.crab2died.ExcelUtils;
+import com.github.crab2died.exceptions.Excel4JException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -51,6 +55,20 @@ public class ExcelUtil {
         }
         System.out.println("---------------------------------------");
         return apis;
+    }
+
+    /**
+     * @return 读excel表内的关联参数并返回
+     * @throws Exception
+     */
+    public static List<ParamBean> readExcel2ParamBean() throws Exception {
+        List<ParamBean> paramBeans = ExcelUtils.getInstance().
+                readExcel2Objects(path1, ParamBean.class, 1);
+        for (ParamBean paramBean: paramBeans){
+            System.out.println(paramBean);
+        }
+        System.out.println("---------------------------------------");
+        return paramBeans;
     }
 
 }
