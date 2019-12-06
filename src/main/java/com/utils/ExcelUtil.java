@@ -6,11 +6,14 @@ import com.domain.ParamBean;
 import com.domain.User;
 import com.github.crab2died.ExcelUtils;
 import com.github.crab2died.exceptions.Excel4JException;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
 
 /**
  *  Excel操作工具类
@@ -22,8 +25,8 @@ public class ExcelUtil {
     private static String path = dir + File.separator + "src" + File.separator + "main"
             + File.separator + "resources" + File.separator + "data_"+ time +".xlsx";
     // 接口excel文件
-    private static String path1 = dir + File.separator + "src" + File.separator + "main"
-            + File.separator + "resources" + File.separator + "apitest5" +".xlsx";
+    public static String path1 = dir + File.separator + "src" + File.separator + "main"
+            + File.separator + "resources" + File.separator + "apitest6" +".xlsx";
 
     /**
      *  写excel操作
@@ -65,10 +68,19 @@ public class ExcelUtil {
         List<ParamBean> paramBeans = ExcelUtils.getInstance().
                 readExcel2Objects(path1, ParamBean.class, 1);
         for (ParamBean paramBean: paramBeans){
-            System.out.println(paramBean);
+            // 反射获取对象值
+            Field[] fields = paramBean.getClass().getDeclaredFields();
+            for (Field field: fields){
+                // 用BeanUtil简化获取属性值
+                System.out.println("Field: " + field.getName() +
+                        " 属性值： " + BeanUtils.getProperty(paramBean, field.getName()));
+            }
         }
         System.out.println("---------------------------------------");
         return paramBeans;
     }
 
+    public static void main(String[] args) throws Exception {
+        readExcel2ParamBean();
+    }
 }
