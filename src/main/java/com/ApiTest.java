@@ -5,6 +5,7 @@ import com.domain.ParamBean;
 import com.github.crab2died.ExcelUtils;
 import com.utils.ExcelUtil;
 import com.utils.MapUtil;
+import com.utils.ParamUtil;
 import com.utils.RequestsUtil;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -24,24 +25,16 @@ public class ApiTest {
 
     /**
      * @param api
-     * @return 返回替换的关联参数
+     * 替换关联参数
      */
-    public static Api replace(Api api){
-        // 先赋值测试一下参数化替换
-        paramMap.put("id", "test");
-        String regex = "\\$\\{(.+?)\\}";
-        String url = api.getUrl();
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(url);
-        while (matcher.find()){
-            System.out.println(matcher.group());
-            System.out.println(matcher.group(1));
-            // 替换内容
-            url = url.replace(matcher.group(), paramMap.get(matcher.group(1)));
-        }
-        System.out.println(url);
-        api.setUrl(url);
-        return api;
+    public static void replace(Api api){
+        // url参数化支持
+        api.setUrl(ParamUtil.replace(api.getUrl()));
+        // body参数化支持
+        api.setParams(ParamUtil.replace(api.getParams()));
+        // header参数化支持
+        api.setHeaders(ParamUtil.replace(api.getHeaders()));
+
     }
 
     public static void main(String[] args) throws Exception {

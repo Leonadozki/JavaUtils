@@ -28,7 +28,10 @@ public class MapUtil {
             for (int i = 0; i < strings.length; i++) {
                 // 等号split为k,v
                 String[] split = strings[i].split("=");
-                map.put(split[0], split[1]);
+                // 先判断，避免越界
+                if (split.length > 1){
+                    map.put(split[0], split[1]);
+                }
             }
             return map;
         }
