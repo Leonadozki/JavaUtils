@@ -1,6 +1,5 @@
 package com.utils;
 
-import com.domain.Api;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
@@ -15,6 +14,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -41,14 +41,20 @@ public class RequestsUtil {
      * @param url 请求地址
      * @throws Exception
      */
-    public static void doGet(String url) throws Exception {
+    public static String doGet(String url) throws Exception {
         HttpGet httpGet = new HttpGet(url);
         // 通过配置的代理来请求
         httpGet.setConfig(config);
         CloseableHttpResponse response = httpClient.execute(httpGet);
         HttpEntity entity = response.getEntity();
-        String resContent = EntityUtils.toString(entity);
-        System.out.println(resContent);
+        // 判断返回值是否为成功
+        if (response.getStatusLine().getStatusCode() == 200){
+            String resContent = EntityUtils.toString(entity);
+            System.out.println(resContent);
+            // 返回json内容
+            return resContent;
+        }
+        return "";
     }
 
     /**
@@ -57,7 +63,7 @@ public class RequestsUtil {
      * @param map map格式入参
      * @throws Exception
      */
-    public static void doPost(String url, Map<String, String> map) throws Exception {
+    public static String doPost(String url, Map<String, String> map) throws Exception {
         HttpPost httpPost = new HttpPost(url);
         // NameValuePair对象存放k,v的入参
         List<NameValuePair> list = new ArrayList<>();
@@ -68,15 +74,13 @@ public class RequestsUtil {
         UrlEncodedFormEntity entity = new UrlEncodedFormEntity(list, "utf-8");
         // 请求配置参数
         httpPost.setEntity(entity);
-        CloseableHttpResponse response = httpClient.execute(httpPost);
-        HttpEntity responseEntity = response.getEntity();
-        System.out.println(EntityUtils.toString(responseEntity));
+        return getResponse(httpPost);
     }
 
     /**
      *  入参为json串的post请求， 及header处理
      */
-    public static void doPostJson(String url, String params, Map<String, String> headers) throws Exception {
+    public static String doPostJson(String url, String params, Map<String, String> headers) throws Exception {
         HttpPost httpPost = new HttpPost(url);
         // 添加headers处理
         if (headers!=null){
@@ -94,8 +98,17 @@ public class RequestsUtil {
         }
         // 配置连接
         httpClient = HttpClients.custom().setDefaultRequestConfig(config).build();
+        return getResponse(httpPost);
+    }
+
+    private static String getResponse(HttpPost httpPost) throws IOException {
         CloseableHttpResponse response = httpClient.execute(httpPost);
         HttpEntity entity = response.getEntity();
-        System.out.println(EntityUtils.toString(entity));
+        String resp = EntityUtils.toString(entity);
+        System.out.println(resp);
+        if (response.getStatusLine().getStatusCode() == 200){
+            return resp;
+        }
+        return "";
     }
 }

@@ -5,7 +5,7 @@ import com.github.crab2died.converter.ReadConvertible;
 public class ReadConverter implements ReadConvertible {
 
     /**
-     * @param s
+     * @param s 是否开启
      * @return 1已开启， 0未开启
      */
     public Object execRead(String s) {

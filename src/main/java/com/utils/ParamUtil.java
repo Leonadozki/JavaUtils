@@ -4,7 +4,6 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -18,7 +17,10 @@ public class ParamUtil {
     // 全局map
     static Map<String, String> map = new HashMap<>();
 
-    public void addMap(String key, String value){
+    /**
+     *  全局map添加参数
+     */
+    public static void addMap(String key, String value){
         map.put(key, value);
     }
 

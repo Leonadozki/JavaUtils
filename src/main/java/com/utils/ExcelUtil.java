@@ -5,15 +5,11 @@ import com.domain.Api;
 import com.domain.ParamBean;
 import com.domain.User;
 import com.github.crab2died.ExcelUtils;
-import com.github.crab2died.exceptions.Excel4JException;
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
-import java.util.Map;
 
 /**
  *  Excel操作工具类

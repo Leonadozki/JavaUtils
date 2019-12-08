@@ -29,6 +29,9 @@ public class Api {
     @ExcelField(title = "头部")
     private String headers;
 
+    @ExcelField(title = "关联")
+    private String correlation;
+
     public Integer getId() {
         return id;
     }
@@ -85,6 +88,14 @@ public class Api {
         this.headers = headers;
     }
 
+    public String getCorrelation() {
+        return correlation;
+    }
+
+    public void setCorrelation(String correlation) {
+        this.correlation = correlation;
+    }
+
     @Override
     public String toString() {
         return "Api{" +
@@ -95,6 +106,7 @@ public class Api {
                 ", status=" + status +
                 ", params='" + params + '\'' +
                 ", headers='" + headers + '\'' +
+                ", correlation='" + correlation + '\'' +
                 '}';
     }
 }

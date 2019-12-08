@@ -2,7 +2,6 @@ package com.utils;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 /**
  *  map转换工具类
