@@ -29,7 +29,7 @@ public class Api {
     @ExcelField(title = "头部")
     private String headers;
 
-    @ExcelField(title = "关联")
+    @ExcelField(title = "返回结果提取")
     private String correlation;
 
     public Integer getId() {

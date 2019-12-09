@@ -22,7 +22,7 @@ public class ExcelUtil {
             + File.separator + "resources" + File.separator + "data_"+ time +".xlsx";
     // 接口excel文件
     public static String path1 = dir + File.separator + "src" + File.separator + "main"
-            + File.separator + "resources" + File.separator + "apitest6" +".xlsx";
+            + File.separator + "resources" + File.separator + "apitest8" +".xlsx";
 
     /**
      *  写excel操作

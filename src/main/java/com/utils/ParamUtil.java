@@ -4,7 +4,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,8 +14,8 @@ import java.util.regex.Pattern;
  */
 public class ParamUtil {
 
-    // 全局map
-    static Map<String, String> map = new HashMap<>();
+    // 全局map，按插入顺序排序
+    public static Map<String, String> map = new LinkedHashMap<>();
 
     /**
      *  全局map添加参数
@@ -57,7 +57,6 @@ public class ParamUtil {
                 str = str.replace(toReplace, getValueFromMap(toReplaceKey));
             }
         }
-        System.out.println(str);
         return str;
     }
 

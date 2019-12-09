@@ -1,5 +1,6 @@
 package com;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONPath;
 import com.domain.Api;
 import com.domain.ParamBean;
@@ -12,7 +13,6 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,7 +22,6 @@ import java.util.Set;
  */
 public class ApiTest {
 
-    static Map<String, String> paramMap = new LinkedHashMap<>();
 
     /**
      * @param api
@@ -30,10 +29,13 @@ public class ApiTest {
      */
     public static void replace(Api api){
         // url参数化支持
+        System.out.println("replace url: " + ParamUtil.replace(api.getUrl()));
         api.setUrl(ParamUtil.replace(api.getUrl()));
         // body参数化支持
+        System.out.println("replace params: " + ParamUtil.replace(api.getParams()));
         api.setParams(ParamUtil.replace(api.getParams()));
         // header参数化支持
+        System.out.println("replace headers: " + ParamUtil.replace(api.getHeaders()));
         api.setHeaders(ParamUtil.replace(api.getHeaders()));
 
     }
@@ -43,7 +45,7 @@ public class ApiTest {
      */
     public static void addCorrelation(String respJson, String correlation){
         // 关联存在再处理
-        if (!StringUtils.isEmpty(correlation)){
+        if (JSON.isValid(respJson) && !StringUtils.isEmpty(correlation)){
             Map<String, String> correlate_map = MapUtil.convertString2Map2(correlation);
             Set<String> keys = correlate_map.keySet();
             // 循环取关联值
@@ -72,6 +74,7 @@ public class ApiTest {
                     }
                 }
             }
+            System.out.println("global map: "+ParamUtil.map);
             // 初始化关联表
             correlate_map.clear();
         }
@@ -88,10 +91,10 @@ public class ApiTest {
             // 反射获取对象值
             Field[] fields = paramBean.getClass().getDeclaredFields();
             for (Field field: fields){
-                // 用BeanUtil简化获取属性值
+//                // 用BeanUtil简化获取属性值
                 System.out.println("Field: " + field.getName() +
                         " 属性值： " + BeanUtils.getProperty(paramBean, field.getName()));
-                paramMap.put(field.getName(), BeanUtils.getProperty(paramBean, field.getName()));
+                ParamUtil.map.put(field.getName(), BeanUtils.getProperty(paramBean, field.getName()));
             }
 
             // 请求部分
@@ -113,6 +116,7 @@ public class ApiTest {
                     addCorrelation(result, api.getCorrelation());
                 }
             }
+            ParamUtil.map.clear();
         }
     }
 }
