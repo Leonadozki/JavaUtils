@@ -3,10 +3,7 @@ package com;
 import com.domain.Api;
 import com.domain.ParamBean;
 import com.github.crab2died.ExcelUtils;
-import com.utils.ExcelUtil;
-import com.utils.MapUtil;
-import com.utils.ParamUtil;
-import com.utils.RequestsUtil;
+import com.utils.*;
 
 import java.util.List;
 
@@ -20,7 +17,7 @@ public class ApiTest {
      * @param api
      * 参数化替换
      */
-    public static void replace(Api api){
+    public static void replaceParams(Api api){
         // url参数化支持
         System.out.println("replace url: " + ParamUtil.replace(api.getUrl()));
         api.setUrl(ParamUtil.replace(api.getUrl()));
@@ -31,6 +28,19 @@ public class ApiTest {
         System.out.println("replace headers: " + ParamUtil.replace(api.getHeaders()));
         api.setHeaders(ParamUtil.replace(api.getHeaders()));
 
+    }
+
+    /**
+     *  函数处理替换
+     *  如：#{__uuid}
+     */
+    public static void replaceFunction(Api api){
+        // url函数处理支持
+        api.setUrl(FunctionUtil.replace(api.getUrl()));
+        // body函数处理支持
+        api.setParams(FunctionUtil.replace(api.getParams()));
+        // header函数处理支持
+        api.setHeaders(FunctionUtil.replace(api.getHeaders()));
     }
 
 
@@ -49,7 +59,9 @@ public class ApiTest {
                 // 先判断是否启用
                 if (api.getStatus() == 1){
                     // 参数化替换
-                    replace(api);
+                    replaceParams(api);
+                    // 函数处理
+                    replaceFunction(api);
                     String result = "";
                     if ("get".equals(api.getMethod()) ){
                         result = RequestsUtil.doGet(api.getUrl());
