@@ -2,6 +2,7 @@ package com.utils;
 
 import org.apache.commons.codec.cli.Digest;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -24,13 +25,16 @@ public class FunctionUtil {
      */
     public static String replace(String func){
         Pattern compile = Pattern.compile(pattern);
-        Matcher matcher = compile.matcher(func);
-        while (matcher.find()){
-            String toReplace = matcher.group();
-            String replaceKey = matcher.group(1);
-            func = func.replace(toReplace, getFunctions(replaceKey));
+        if (!StringUtils.isEmpty(func)){
+            Matcher matcher = compile.matcher(func);
+            while (matcher.find()){
+                String toReplace = matcher.group();
+                String replaceKey = matcher.group(1);
+                func = func.replace(toReplace, getFunctions(replaceKey));
+            }
+            System.out.println(func);
+            return func;
         }
-        System.out.println(func);
         return func;
     }
 

@@ -27,10 +27,10 @@ import java.util.Set;
 public class RequestsUtil {
 
     // 创建代理， 使用final的变量Java和JVM会进行缓存，优化性能
-    final static HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
+//    final static HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
 
     // 配置代理
-    static RequestConfig config = RequestConfig.custom().setProxy(proxy).build();
+//    static RequestConfig config = RequestConfig.custom().setProxy(proxy).build();
 
     // 创建连接池
     static CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -44,7 +44,7 @@ public class RequestsUtil {
     public static String doGet(String url) throws Exception {
         HttpGet httpGet = new HttpGet(url);
         // 通过配置的代理来请求
-        httpGet.setConfig(config);
+//        httpGet.setConfig(config);
         CloseableHttpResponse response = httpClient.execute(httpGet);
         HttpEntity entity = response.getEntity();
         // 判断返回值是否为成功
@@ -97,7 +97,7 @@ public class RequestsUtil {
             httpPost.setEntity(stringEntity);
         }
         // 配置连接
-        httpClient = HttpClients.custom().setDefaultRequestConfig(config).build();
+//        httpClient = HttpClients.custom().setDefaultRequestConfig(config).build();
         return getResponse(httpPost);
     }
 
