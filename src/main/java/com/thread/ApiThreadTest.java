@@ -6,6 +6,9 @@ import com.utils.ExcelUtil;
 
 import java.util.List;
 
+/**
+ *  Api线程测试类
+ */
 public class ApiThreadTest {
 
     public static void main(String[] args) throws Exception {

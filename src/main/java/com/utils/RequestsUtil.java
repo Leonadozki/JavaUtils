@@ -27,10 +27,10 @@ import java.util.Set;
 public class RequestsUtil {
 
     // 创建代理， 使用final的变量Java和JVM会进行缓存，优化性能
-//    final static HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
+    //  final static HttpHost proxy = new HttpHost("127.0.0.1", 8888, "http");
 
     // 配置代理
-//    static RequestConfig config = RequestConfig.custom().setProxy(proxy).build();
+    //    static RequestConfig config = RequestConfig.custom().setProxy(proxy).build();
 
     // 创建连接池
     static CloseableHttpClient httpClient = HttpClients.createDefault();

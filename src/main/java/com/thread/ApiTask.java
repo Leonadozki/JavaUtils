@@ -11,7 +11,7 @@ import com.utils.RequestsUtil;
 import java.util.List;
 
 /**
- *  线程任务类实现请求逻辑
+ *  线程任务类, 实现请求逻辑
  */
 public class ApiTask extends Thread{
 
