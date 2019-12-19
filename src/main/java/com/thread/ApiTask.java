@@ -3,6 +3,7 @@ package com.thread;
 import com.ApiTest;
 import com.domain.Api;
 import com.domain.ParamBean;
+import com.github.checkpoint.CheckPointUtils;
 import com.utils.ExcelUtil;
 import com.utils.MapUtil;
 import com.utils.ParamUtil;
@@ -50,6 +51,7 @@ public class ApiTask extends Thread{
                     }
                     // 结果关联
                     ParamUtil.addCorrelationFromJson(result, api.getCorrelation());
+                    System.out.println("检查点： " + CheckPointUtils.check(result, api.getCheckPoint()));
                 }
             }
             ParamUtil.map.clear();

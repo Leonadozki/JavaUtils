@@ -32,6 +32,9 @@ public class Api {
     @ExcelField(title = "返回结果提取")
     private String correlation;
 
+    @ExcelField(title = "数据检查")
+    private String checkPoint;
+
     public Integer getId() {
         return id;
     }
@@ -96,6 +99,14 @@ public class Api {
         this.correlation = correlation;
     }
 
+    public String getCheckPoint() {
+        return checkPoint;
+    }
+
+    public void setCheckPoint(String checkPoint) {
+        this.checkPoint = checkPoint;
+    }
+
     @Override
     public String toString() {
         return "Api{" +
@@ -107,6 +118,7 @@ public class Api {
                 ", params='" + params + '\'' +
                 ", headers='" + headers + '\'' +
                 ", correlation='" + correlation + '\'' +
+                ", checkPoint='" + checkPoint + '\'' +
                 '}';
     }
 }
