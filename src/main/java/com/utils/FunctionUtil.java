@@ -32,7 +32,6 @@ public class FunctionUtil {
                 String replaceKey = matcher.group(1);
                 func = func.replace(toReplace, getFunctions(replaceKey));
             }
-            System.out.println(func);
             return func;
         }
         return func;

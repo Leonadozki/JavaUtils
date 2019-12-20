@@ -36,6 +36,7 @@ public class ApiTask extends Thread{
             for (Api api : apis) {
                 // 先判断是否启用
                 if (api.getStatus() == 1) {
+                    System.out.println("-----------当前用例： " + api.getName() + "----------");
                     // 参数化替换
                     ApiTest.replaceParams(api);
                     // 函数处理
@@ -46,15 +47,16 @@ public class ApiTask extends Thread{
                     } else if ("post".equals(api.getMethod())) {
                         // 入参转换为Map传入
                         result = RequestsUtil.doPost(api.getUrl(), MapUtil.convertString2Map1(api.getParams()));
-                    } else if ("postjson".equals(api.getMethod())) {
+                    } else if ("postJson".equalsIgnoreCase(api.getMethod())) {
                         result = RequestsUtil.doPostJson(api.getUrl(), api.getParams(), MapUtil.convertString2Map2(api.getHeaders()));
                     }
                     // 结果关联
                     ParamUtil.addCorrelationFromJson(result, api.getCorrelation());
+                    // 检查点验证结果
                     System.out.println("检查点： " + CheckPointUtils.check(result, api.getCheckPoint()));
                 }
             }
-            ParamUtil.map.clear();
+//            ParamUtil.threadLocal.get().clear();
         } catch (Exception e) {
             e.printStackTrace();
         }

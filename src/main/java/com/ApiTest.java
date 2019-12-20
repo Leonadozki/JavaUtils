@@ -75,7 +75,7 @@ public class ApiTest {
                     ParamUtil.addCorrelationFromJson(result, api.getCorrelation());
                 }
             }
-            ParamUtil.map.clear();
+//            ParamUtil.map.clear();
         }
     }
 }

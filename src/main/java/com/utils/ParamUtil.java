@@ -19,10 +19,10 @@ import java.util.regex.Pattern;
 public class ParamUtil {
 
     // 全局map，按插入顺序排序
-    public static Map<String, String> map = new LinkedHashMap<>();
+//    public static Map<String, String> map = new LinkedHashMap<>();
 
     // 全局map，threadLocal类实现对象线程独立
-    public static ThreadLocal<Map<String, String>> threadLocal = new ThreadLocal<Map<String, String>>(){
+    private static ThreadLocal<Map<String, String>> threadLocal = new ThreadLocal<Map<String, String>>(){
         @Override
         protected Map<String, String> initialValue() {
             return new LinkedHashMap<>();
@@ -32,7 +32,7 @@ public class ParamUtil {
     /**
      *  全局map添加参数，threadLocal方式添加独立map
      */
-    public static void addMap(String key, String value){
+    private static void addMap(String key, String value){
 //        map.put(key, value);
         threadLocal.get().put(key,value);
     }
@@ -99,7 +99,7 @@ public class ParamUtil {
      *  字符串替换工具
      */
     public static String replace(String str){
-        String regex = "\\$\\{(.+?)\\}";
+        String regex = "\\$\\{(.+?)}";
         Pattern pattern = Pattern.compile(regex);
         // 字符串先判空再处理
         if (!StringUtils.isEmpty(str)){
@@ -117,7 +117,7 @@ public class ParamUtil {
     /**
      *  替换参数空值处理
      */
-    public static String getValueFromMap(String key){
+    private static String getValueFromMap(String key){
         String s = threadLocal.get().get(key);
         if (s==null){
             return "";
