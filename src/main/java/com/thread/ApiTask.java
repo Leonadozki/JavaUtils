@@ -4,6 +4,7 @@ import com.ApiTest;
 import com.domain.Api;
 import com.domain.ParamBean;
 import com.github.checkpoint.CheckPointUtils;
+import com.github.checkpoint.JsonCheckResult;
 import com.utils.ExcelUtil;
 import com.utils.MapUtil;
 import com.utils.ParamUtil;
@@ -52,11 +53,11 @@ public class ApiTask extends Thread{
                     }
                     // 结果关联
                     ParamUtil.addCorrelationFromJson(result, api.getCorrelation());
-                    // 检查点验证结果
-                    System.out.println("检查点： " + CheckPointUtils.check(result, api.getCheckPoint()));
+                    // 检查点验证结果, getMsg()方法输出语义结果
+                    System.out.println("检查点： " + CheckPointUtils.check(result, api.getCheckPoint()).getMsg());
                 }
             }
-//            ParamUtil.threadLocal.get().clear();
+            ParamUtil.threadLocal.get().clear();
         } catch (Exception e) {
             e.printStackTrace();
         }

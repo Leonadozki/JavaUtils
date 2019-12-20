@@ -22,7 +22,7 @@ public class ParamUtil {
 //    public static Map<String, String> map = new LinkedHashMap<>();
 
     // 全局map，threadLocal类实现对象线程独立
-    private static ThreadLocal<Map<String, String>> threadLocal = new ThreadLocal<Map<String, String>>(){
+    public static ThreadLocal<Map<String, String>> threadLocal = new ThreadLocal<Map<String, String>>(){
         @Override
         protected Map<String, String> initialValue() {
             return new LinkedHashMap<>();
