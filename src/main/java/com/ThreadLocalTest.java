@@ -20,13 +20,10 @@ public class ThreadLocalTest {
         threadLocal.get().put("leo", "handsome");
         getCurrentThread();
 
-        new Thread(){
-            @Override
-            public void run() {
-                threadLocal.get().put("leo", "smart");
-                getCurrentThread();
-            }
-        }.start();
+        new Thread(() -> {
+            threadLocal.get().put("leo", "smart");
+            getCurrentThread();
+        }).start();
 
         new Thread(){
             @Override
