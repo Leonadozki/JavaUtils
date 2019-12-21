@@ -18,10 +18,7 @@ import java.util.regex.Pattern;
  */
 public class ParamUtil {
 
-    // 全局map，按插入顺序排序
-//    public static Map<String, String> map = new LinkedHashMap<>();
-
-    // 全局map，threadLocal类实现对象线程独立
+    // 全局map，threadLocal类实现对象线程独立，按插入顺序排序
     public static ThreadLocal<Map<String, String>> threadLocal = new ThreadLocal<Map<String, String>>(){
         @Override
         protected Map<String, String> initialValue() {
@@ -33,7 +30,6 @@ public class ParamUtil {
      *  全局map添加参数，threadLocal方式添加独立map
      */
     private static void addMap(String key, String value){
-//        map.put(key, value);
         threadLocal.get().put(key,value);
     }
 
@@ -47,7 +43,6 @@ public class ParamUtil {
             String key = field.getName();
             try {
                 String value = BeanUtils.getProperty(object, field.getName());
-//                map.put(key, value);
                 addMap(key, value);
             } catch (Exception e) {
                 e.printStackTrace();

@@ -11,6 +11,7 @@ import com.utils.ParamUtil;
 import com.utils.RequestsUtil;
 
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 /**
  *  线程任务类, 实现请求逻辑
@@ -19,11 +20,23 @@ public class ApiTask extends Thread{
 
     private ParamBean paramBean;
 
+    // 子线程都运行后再执行主线程
+    private CountDownLatch latch;
+
     /**
      * @param paramBean 构造方法传值
      */
     public ApiTask(ParamBean paramBean) {
         this.paramBean = paramBean;
+    }
+
+    /**
+     * @param paramBean 传用户
+     * @param latch 线程计数器
+     */
+    public ApiTask(ParamBean paramBean, CountDownLatch latch){
+        this.paramBean = paramBean;
+        this.latch = latch;
     }
 
     @Override
@@ -58,6 +71,8 @@ public class ApiTask extends Thread{
                 }
             }
             ParamUtil.threadLocal.get().clear();
+            // 运行完毕，计数减1
+            latch.countDown();
         } catch (Exception e) {
             e.printStackTrace();
         }
