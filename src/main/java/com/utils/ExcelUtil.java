@@ -23,6 +23,8 @@ public class ExcelUtil {
     // 接口excel文件
     public static String path1 = dir + File.separator + "src" + File.separator + "main"
             + File.separator + "resources" + File.separator + "apitest8" +".xlsx";
+    // 测试s结果文件路径
+    public static String path_result = dir + File.separator + "result" + File.separator;
 
     /**
      *  写excel操作
