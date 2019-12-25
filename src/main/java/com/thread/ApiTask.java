@@ -1,11 +1,9 @@
 package com.thread;
 
-import com.ApiTest;
 import com.domain.Api;
 import com.domain.ParamBean;
 import com.domain.TestResult;
 import com.github.checkpoint.CheckPointUtils;
-import com.github.checkpoint.JsonCheckResult;
 import com.utils.*;
 import org.apache.commons.beanutils.BeanUtils;
 

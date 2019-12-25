@@ -3,6 +3,7 @@ package com.thread;
 import com.domain.ParamBean;
 import com.domain.TestResult;
 import com.github.crab2died.ExcelUtils;
+import com.mail.EmailUtils;
 import com.utils.ExcelUtil;
 
 import java.io.File;
@@ -18,11 +19,14 @@ import java.util.concurrent.TimeUnit;
  */
 public class ApiThreadTest {
 
-    public static List<TestResult> listResult = new ArrayList<>();
+    static List<TestResult> listResult = new ArrayList<>();
+
+    // 输出测试结果文件名
+    public static String resultFile;
 
     // 格式化当前时间
-    private static String getDate(){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_mm_dd");
+    public static String getDate(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd");
         return dateFormat.format(new Date());
     }
 
@@ -44,8 +48,11 @@ public class ApiThreadTest {
         if (!resultPath.exists()){
             resultPath.mkdirs();
         }
-        String resultFile = ExcelUtil.path_result + "result_" + getDate() + ".xlsx";
+        resultFile = ExcelUtil.path_result + "result_" + getDate() + ".xlsx";
         ExcelUtils.getInstance().exportObjects2Excel(listResult, TestResult.class, resultFile);
+        // 结果附件上邮件
+        System.out.println("邮件发送...");
+        EmailUtils.sendMsg(resultFile);
     }
 
 
