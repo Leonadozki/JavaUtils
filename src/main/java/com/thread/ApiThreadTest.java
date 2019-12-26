@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -34,12 +36,16 @@ public class ApiThreadTest {
         // 获取sheet1中所有账号信息
         List<ParamBean> paramBeans = ExcelUtils.getInstance().
                 readExcel2Objects(ExcelUtil.path1, ParamBean.class, 1);
+        // 引入线程池
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(10);
         // 线程计数器，传入账号数量
         CountDownLatch latch = new CountDownLatch(paramBeans.size());
         for (ParamBean paramBean: paramBeans){
             ApiTask task = new ApiTask(paramBean, latch);
             System.out.println("----当前线程用户"+ paramBean.getLoginname() + "----");
-            task.start();
+//            task.start();
+            // 线程池运行线程任务
+            fixedThreadPool.execute(task);
         }
         // await()阻塞，直到countDown()执行，数量减1
         latch.await(3, TimeUnit.MINUTES);
@@ -53,6 +59,8 @@ public class ApiThreadTest {
         // 结果附件上邮件
         System.out.println("邮件发送...");
         EmailUtils.sendMsg(resultFile);
+        // 关闭线程池
+        fixedThreadPool.shutdown();
     }
 
 
