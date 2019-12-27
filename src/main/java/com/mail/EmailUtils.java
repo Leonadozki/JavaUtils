@@ -30,11 +30,14 @@ public class EmailUtils {
         // 把需要的 DataSourceResolver放进数组传进去即可
 //        mail.setDataSourceResolver(new DataSourceCompositeResolver(dataSourceResolvers));
 
-        String[] toList = {"272137499@qq.com", "leonadozki@163.com"};
-        mail.setHostName("smtp.163.com");  // 邮件服务器域名
-        mail.setAuthentication("leonadozki@163.com", "52miaomiao"); // 邮箱账户
+        String host = PropertiesUtils.getString("email.host");
+        String user =PropertiesUtils.getString("email.user");
+        String pwd = PropertiesUtils.getString("email.pwd");
+        String[] toList = PropertiesUtils.getStringArray("email.to");
+        mail.setHostName(host);  // 邮件服务器域名
+        mail.setAuthentication(user, pwd); // 邮箱账户
         mail.setCharset("UTF-8");
-        mail.setFrom("leonadozki@163.com");
+        mail.setFrom(user);
         for (String to : toList){
             mail.addTo(to);
         }
