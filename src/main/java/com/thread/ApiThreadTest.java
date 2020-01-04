@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ApiThreadTest {
 
-    static List<TestResult> listResult = new ArrayList<>();
+    public static List<TestResult> listResult = new ArrayList<>();
 
     // 输出测试结果文件名
     public static String resultFile;
