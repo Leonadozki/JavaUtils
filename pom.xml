@@ -41,6 +41,28 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- maven jar插件扩展 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <!--lib依赖 包和main方法关系通过 MANIFEST.MF配置文件维护 -->
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.thread.ApiThreadTest</mainClass>
+                        </manifest>
+                        <!-- 自定义包 写入MANIFEST.MF -->
+                        <manifestEntries>
+                            <Class-Path>libs/checkpoint.jar</Class-Path>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 

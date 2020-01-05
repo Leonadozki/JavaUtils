@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="13" passed="13">
+  <reporter-output>
+  </reporter-output>
+  <suite name="testng.DataProviderTest" duration-ms="402" started-at="2020-01-05T23:30:21 CST" finished-at="2020-01-05T23:30:22 CST">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="402" started-at="2020-01-05T23:30:21 CST" finished-at="2020-01-05T23:30:22 CST">
+      <class name="testng.DataProviderTest">
+        <test-method status="PASS" signature="testArray(java.lang.Class, java.lang.String, java.lang.String, java.lang.Integer)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testArray" duration-ms="102" started-at="2020-01-05T23:30:21 CST" data-provider="param1" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[class java.util.Vector]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[test1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[a]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testArray -->
+        <test-method status="PASS" signature="testArray(java.lang.Class, java.lang.String, java.lang.String, java.lang.Integer)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testArray" duration-ms="3" started-at="2020-01-05T23:30:22 CST" data-provider="param1" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[class java.lang.String]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[test2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[b]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testArray -->
+        <test-method status="PASS" signature="testArray(java.lang.Class, java.lang.String, java.lang.String, java.lang.Integer)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testArray" duration-ms="3" started-at="2020-01-05T23:30:22 CST" data-provider="param1" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[class java.lang.Integer]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[test3]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[c]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testArray -->
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ParamBean{loginname='testName', loginpass='000'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testList -->
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ParamBean{loginname='testName', loginpass='111'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testList -->
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="3" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ParamBean{loginname='testName', loginpass='222'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testList -->
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ParamBean{loginname='testName', loginpass='333'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testList -->
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ParamBean{loginname='testName', loginpass='444'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testList -->
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="4" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ParamBean{loginname='testName', loginpass='555'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testList -->
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ParamBean{loginname='testName', loginpass='666'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testList -->
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ParamBean{loginname='testName', loginpass='777'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testList -->
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ParamBean{loginname='testName', loginpass='888'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testList -->
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="3" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ParamBean{loginname='testName', loginpass='999'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testList -->
+      </class> <!-- testng.DataProviderTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- testng.DataProviderTest -->
+</testng-results>
