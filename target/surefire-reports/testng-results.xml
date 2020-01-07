@@ -2,12 +2,18 @@
 <testng-results skipped="0" failed="0" ignored="0" total="13" passed="13">
   <reporter-output>
   </reporter-output>
-  <suite name="testng.DataProviderTest" duration-ms="402" started-at="2020-01-05T23:30:21 CST" finished-at="2020-01-05T23:30:22 CST">
+  <suite name="Suite" duration-ms="19840" started-at="2020-01-07T23:08:41 CST" finished-at="2020-01-07T23:09:01 CST">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="402" started-at="2020-01-05T23:30:21 CST" finished-at="2020-01-05T23:30:22 CST">
+    <test name="Test1" duration-ms="19840" started-at="2020-01-07T23:08:41 CST" finished-at="2020-01-07T23:09:01 CST">
+      <class name="testng.ApiTestNg">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testng.ApiTestNg@657c8ad9]" name="afterClass" is-config="true" duration-ms="19524" started-at="2020-01-07T23:08:41 CST" finished-at="2020-01-07T23:09:01 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- testng.ApiTestNg -->
       <class name="testng.DataProviderTest">
-        <test-method status="PASS" signature="testArray(java.lang.Class, java.lang.String, java.lang.String, java.lang.Integer)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testArray" duration-ms="102" started-at="2020-01-05T23:30:21 CST" data-provider="param1" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testArray(java.lang.Class, java.lang.String, java.lang.String, java.lang.Integer)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testArray" duration-ms="49" started-at="2020-01-07T23:09:01 CST" data-provider="param1" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -33,7 +39,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testArray -->
-        <test-method status="PASS" signature="testArray(java.lang.Class, java.lang.String, java.lang.String, java.lang.Integer)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testArray" duration-ms="3" started-at="2020-01-05T23:30:22 CST" data-provider="param1" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testArray(java.lang.Class, java.lang.String, java.lang.String, java.lang.Integer)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testArray" duration-ms="2" started-at="2020-01-07T23:09:01 CST" data-provider="param1" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -59,7 +65,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testArray -->
-        <test-method status="PASS" signature="testArray(java.lang.Class, java.lang.String, java.lang.String, java.lang.Integer)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testArray" duration-ms="3" started-at="2020-01-05T23:30:22 CST" data-provider="param1" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testArray(java.lang.Class, java.lang.String, java.lang.String, java.lang.Integer)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testArray" duration-ms="3" started-at="2020-01-07T23:09:01 CST" data-provider="param1" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -85,7 +91,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testArray -->
-        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testList" duration-ms="2" started-at="2020-01-07T23:09:01 CST" data-provider="param" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -96,7 +102,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testList -->
-        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testList" duration-ms="2" started-at="2020-01-07T23:09:01 CST" data-provider="param" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -107,7 +113,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testList -->
-        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="3" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testList" duration-ms="2" started-at="2020-01-07T23:09:01 CST" data-provider="param" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -118,7 +124,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testList -->
-        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testList" duration-ms="2" started-at="2020-01-07T23:09:01 CST" data-provider="param" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -129,7 +135,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testList -->
-        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testList" duration-ms="2" started-at="2020-01-07T23:09:01 CST" data-provider="param" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -140,7 +146,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testList -->
-        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="4" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testList" duration-ms="2" started-at="2020-01-07T23:09:01 CST" data-provider="param" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -151,7 +157,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testList -->
-        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testList" duration-ms="3" started-at="2020-01-07T23:09:01 CST" data-provider="param" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -162,7 +168,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testList -->
-        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testList" duration-ms="2" started-at="2020-01-07T23:09:01 CST" data-provider="param" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -173,7 +179,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testList -->
-        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="2" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testList" duration-ms="3" started-at="2020-01-07T23:09:01 CST" data-provider="param" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -184,7 +190,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testList -->
-        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@105fece7]" name="testList" duration-ms="3" started-at="2020-01-05T23:30:22 CST" data-provider="param" finished-at="2020-01-05T23:30:22 CST">
+        <test-method status="PASS" signature="testList(com.domain.ParamBean)[pri:0, instance:testng.DataProviderTest@436a4e4b]" name="testList" duration-ms="2" started-at="2020-01-07T23:09:01 CST" data-provider="param" finished-at="2020-01-07T23:09:01 CST">
           <params>
             <param index="0">
               <value>
@@ -196,6 +202,6 @@
           </reporter-output>
         </test-method> <!-- testList -->
       </class> <!-- testng.DataProviderTest -->
-    </test> <!-- Command line test -->
-  </suite> <!-- testng.DataProviderTest -->
+    </test> <!-- Test1 -->
+  </suite> <!-- Suite -->
 </testng-results>
